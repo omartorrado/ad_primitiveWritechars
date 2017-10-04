@@ -34,6 +34,10 @@ public class PrimitiveWritechars {
 
     public static void leer(String file) {
         String linea="";
+        /*
+        A diferencia de writeUTF (que guarda la longitud en bytes de cada cadena de texto,
+        con writeChars solo se guardan los caracteres separados con un byte 00
+        */
         try {
             DataInputStream dis = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
             int bytesTotales = dis.available();
@@ -50,6 +54,7 @@ public class PrimitiveWritechars {
                 } else {
                     for(int i=0;i<18;i++){
                         linea+= dis.readChar();
+                        
                     }
                     System.out.println("Leemos a "+iteraciones+"ª cadea: " + linea);
                     linea="";
